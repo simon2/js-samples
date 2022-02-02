@@ -26,9 +26,9 @@ interface Data {
 }
 
 const DATA_URL =
-  "https://raw.githubusercontent.com/visgl/deck.gl-data/master/examples/trips/trips-v7.json";
+  "https://raw.githubusercontent.com/simon2/trj_data/main/kyoto2020.json";
 
-const LOOP_LENGTH = 1800;
+const LOOP_LENGTH = 9000;
 const VENDOR_COLORS = [
   [255, 0, 0], // vendor #0
   [0, 0, 255], // vendor #1
@@ -38,10 +38,10 @@ function initMap(): void {
   const map = new google.maps.Map(
     document.getElementById("map") as HTMLElement,
     {
-      center: { lat: 40.72, lng: -74 },
+      center: { lat: 35.03, lng: 135.77 },
       mapId: "fae05836df2dc8bb",
       tilt: 45,
-      zoom: 15,
+      zoom: 13,
     }
   );
 
@@ -53,7 +53,7 @@ function initMap(): void {
     getTimestamps: (d: Data) => d.timestamps,
     getColor: (d: Data) => VENDOR_COLORS[d.vendor],
     opacity: 1,
-    widthMinPixels: 2,
+    widthMinPixels: 5,
     trailLength: 180,
     currentTime,
     shadowEnabled: false,
